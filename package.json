@@ -12,10 +12,12 @@
     "format": "biome format --write ."
   },
   "dependencies": {
-    "@biomejs/biome": "^2.4.5",
-    "@tailwindcss/vite": "^4.2.1",
-    "astro": "^5.17.1",
     "lit": "^3.3.2",
     "tailwindcss": "^4.2.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.5",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^5.17.1"
   }
 }

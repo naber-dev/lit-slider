@@ -1,43 +1,67 @@
-# Astro Starter Kit: Minimal
+# Lit Slider
 
-```sh
-npm create astro@latest -- --template minimal
+A dynamic image slider built as a static website. Images can be added at runtime
+by entering a URL into the input field at the bottom of the page.
+
+## Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| [Astro](https://astro.build) | Static site generator & JS/TS bundler |
+| [Lit](https://lit.dev) | Web Component for the dynamic slider |
+| [TailwindCSS v4](https://tailwindcss.com) | Utility-first styling |
+| [Docker / Podman](https://www.docker.com) | Containerized deployment |
+
+## Features
+
+- **Responsive** — 1 image per slide on mobile, 2 on medium, 3 on large screens
+- **Smooth animation** — slide transition on prev/next navigation
+- **Wrap-around** — loops from last to first slide and vice versa
+- **Add images** — enter any image URL and press Enter to add a new slide
+- **Dark mode** — automatically adapts to the system color scheme
+
+## Prerequisites
+
+- Docker or Podman
+
+For local development additionally:
+- Node.js >= 22
+
+## Running with Docker
+
+```bash
+docker build -t lit-slider .
+docker run -p 8080:80 lit-slider
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Open http://localhost:8080
 
-## 🚀 Project Structure
+## Local Development
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
+npm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Open http://localhost:4321
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Build
 
-Any static assets, like images, can be placed in the `public/` directory.
+```bash
+npm run build
+```
 
-## 🧞 Commands
+Output is generated in the `dist/` directory.
 
-All commands are run from the root of the project, from a terminal:
+## Project Structure
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```
+src/
+├── components/
+│   └── slider.ts       # Lit Web Component
+├── pages/
+│   └── index.astro     # Single page entry point
+└── styles/
+    └── tailwind.css    # Tailwind CSS entry
+Dockerfile
+```
